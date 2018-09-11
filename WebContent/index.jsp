@@ -8,39 +8,38 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login- In Class 02</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark text-white">
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <h1 class="w3-text-white">In Class 02</h1>
-    </li>
-  </ul>
-</nav>
+<div class="jumbotron">
+  <div class="centerAlign textBold">
+    <h1>In Class 02</h1>      
+  </div>  
+</div>
 
 <div class="container">
   <h2 class="margin20">Administrator Login</h2>
   <form class="form-horizontal" action="#">
     <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Email:</label>
-      <div class="col-sm-10">
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
-      </div>
+      	<label class="control-label col-sm-2" for="email">Email:</label>
+      	<div class="col-sm-10 input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        	<input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+      	</div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Password:</label>
-      <div class="col-sm-10">          
+      <div class="col-sm-10 input-group"> 
+      	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>         
         <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
       </div>
     </div>
     <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="col-sm-offset-2">
         <button type="submit" class="btn btn-default btn-success">Submit</button>
       </div>
     </div>

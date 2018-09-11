@@ -5,3 +5,11 @@
 .margin20{
 	margin:20px;
 }
+
+.centerAlign{
+	text-align: center;
+}
+
+.textBold{
+	font-weight: bold;
+}
