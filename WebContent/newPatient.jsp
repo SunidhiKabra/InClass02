@@ -23,7 +23,7 @@
 
 <div class="container">
   <h2 class="margin20 centerAlign col-sm-10">New Patient Sign Up Form</h2>  
-  <form class="form-horizontal" action="#">
+  <form class="form-horizontal" action="controller" method="get" >
     <div class="form-group">
       <label class="control-label col-sm-2" for="patientName">Name:</label>
       <div class="col-sm-10 input-group">

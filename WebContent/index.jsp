@@ -23,19 +23,19 @@
 
 <div class="container">
   <h2 class="margin20">Administrator Login</h2>
-  <form class="form-horizontal" action="#">
+  <form class="form-horizontal" action="Controller" method="post">
     <div class="form-group">
-      	<label class="control-label col-sm-2" for="email">Email:</label>
+      	<label class="control-label col-sm-2" for="text">Username:</label>
       	<div class="col-sm-10 input-group">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        	<input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+        	<input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
       	</div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Password:</label>
+      <label class="control-label col-sm-2" for="password">Password:</label>
       <div class="col-sm-10 input-group"> 
       	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>         
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
+        <input type="password" class="form-control" id="password" placeholder="Enter password" name="pwd" required>
       </div>
     </div>
     <div class="form-group">        
