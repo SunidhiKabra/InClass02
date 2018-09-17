@@ -10,32 +10,40 @@
 <script src="www.domain2.com/script.js"></script>
 <script src="crossdomain.js" ></script>
 <script>
-function myFunction() {
-	$.ajax({
-        method: "POST",
-        data: {
-            username: $('#username').val(),
-            password:$('#password').val() },
-            url: "http://ec2-18-216-97-75.us-east-2.compute.amazonaws.com:3000/admin_login",
+function myFunction() { 
+ 	$.ajax({ 
+         method: "POST", 
+         data: { 
+             username: $('#username').val(),
+             password:$('#password').val() },
+             url: "http://ec2-18-216-97-75.us-east-2.compute.amazonaws.com:3000/admin_login",
            
-            success: 
-            	function(result) {
-                	if(result.status==200){
-               			window.alert(result.message);
-               			location.href = "newPatient.jsp"
-                	}
-                	else{
-                		window.alert(result.message);
-                	}
-            	},
-            error:
-            	function(result) {
-                	window.alert("Authentication failed. Admin not found.");
-            		location.href = "index.jsp";
-                }
-      });
-}
-</script>
+             success:  
+             	function(result) { 
+                 	if(result.status==200){ 
+                			window.alert(result.message); 
+                			location.href = "newPatient.jsp" 
+                 	} 
+                 	else{ 
+                 		window.alert(result.message); 
+                 	} 
+             	}, 
+             error: 
+             	function(result) { 
+                 	window.alert("Authentication failed. Admin not found."); 
+             		location.href = "index.jsp"; 
+                 } 
+       }); 
+ } 
+</script> 
+
+
+<!-- <script> 
+// $("#contactForm").submit(function(event){
+//     // cancels the form submission
+// 	window.alert("asdfghjk");
+// });
+</script> -->
 
 <title>Login- In Class 02</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,7 +64,7 @@ function myFunction() {
 
 <div class="container">
   <h2 class="margin20">Administrator Login</h2>
-  <form class="form-horizontal" method="post">
+  <form id="adminLoginForm" class="form-horizontal" method="post">
     <div class="form-group">
       	<label class="control-label col-sm-2" for="text">Username:</label>
       	<div class="col-sm-10 input-group">
@@ -73,7 +81,7 @@ function myFunction() {
     </div>
     <div class="form-group">        
       <div class="col-sm-offset-2">
-        <button type="button" class="btn btn-default btn-success" onclick="myFunction()">Submit</button>
+        <button type="button" id="submit" onClick="myFunction()" class="btn btn-default btn-success">Submit</button>
       </div>
     </div>
   </form>

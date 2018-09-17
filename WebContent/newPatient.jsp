@@ -6,6 +6,43 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="www.domain2.com/script.js"></script>
+<script src="crossdomain.js" ></script>
+<script>
+function patientSignUp() {
+	window.alert("Inside function patientSignUp");
+	
+	$.ajax({
+        method: "POST",
+        data: {
+            patient_name: $('#patientName').val(),
+            age:$('#patientAge').val(),
+            weight:$('#patientWeight').val(),
+            address:$('#patientAddress').val(),
+            username:$('#patientUsername').val(),
+            password:$('#patientPassword').val(),
+            phone:$('#patientContact').val()},
+            url: "http://ec2-18-216-97-75.us-east-2.compute.amazonaws.com:3000/admin_login",
+           
+            success: 
+            	function(result) {
+                	if(result.status==200){
+               			window.alert(result.message);
+//                			location.href = "newPatient.jsp"
+                	}
+                	else{
+                		window.alert(result.message);
+                	}
+            	},
+            error:
+            	function(result) {
+//                 	window.alert("Authentication failed. Admin not found.");
+//             		location.href = "index.jsp";
+                }
+      });
+}
+</script>
 <title>New Patient- In Class 02</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css" type="text/css">
@@ -32,6 +69,27 @@
       </div>
     </div>
     <div class="form-group">
+      <label class="control-label col-sm-2" for="patientAge">Age:</label>
+      <div class="col-sm-10 input-group">
+      	<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+      	<input type="number" class="form-control" id="patientAge" placeholder="Patient's Age" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="patientWeight">Weight:</label>
+      <div class="col-sm-10 input-group">
+      	<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+      	<input type="number" class="form-control" id="patientWeight" placeholder="Patient's Weight" required>
+      </div>
+    </div>
+        <div class="form-group">
+      <label class="control-label col-sm-2" for="patientAddress">Address:</label>
+      <div class="col-sm-10 input-group">
+      	<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+      	<input type="text" class="form-control" id="patientAddress" placeholder="Patient's Address" required>
+      </div>
+    </div>
+    <div class="form-group">
       <label class="control-label col-sm-2" for="patientUsername">Username:</label>
       <div class="col-sm-10 input-group">
       	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -52,16 +110,16 @@
       	<input type="tel" pattern="^\d{3}-\d{3}-\d{4}$" class="form-control" id="patientContact" placeholder="Format(xxx-xxx-xxxx)" required>
       </div>
     </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="patientEmail">Email:</label>
-      <div class="col-sm-10 input-group">
-			<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-        	<input type="email" class="form-control" id="patientEmail" placeholder="Patient's email" required>
-      	</div>
-    </div>
+<!--     <div class="form-group"> -->
+<!--       <label class="control-label col-sm-2" for="patientEmail">Email:</label> -->
+<!--       <div class="col-sm-10 input-group"> -->
+<!-- 			<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span> -->
+<!--         	<input type="email" class="form-control" id="patientEmail" placeholder="Patient's email" required> -->
+<!--       	</div> -->
+<!--     </div> -->
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default btn-success">Submit</button>
+        <button type="button" class="btn btn-default btn-success" onCLick="patientSignUp()">Submit</button>
       </div>
     </div>
   </form> 
