@@ -6,6 +6,37 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="www.domain2.com/script.js"></script>
+<script src="crossdomain.js" ></script>
+<script>
+function myFunction() {
+	$.ajax({
+        method: "POST",
+        data: {
+            username: $('#username').val(),
+            password:$('#password').val() },
+            url: "http://ec2-18-216-97-75.us-east-2.compute.amazonaws.com:3000/admin_login",
+           
+            success: 
+            	function(result) {
+                	if(result.status==200){
+               			window.alert(result.message);
+               			location.href = "newPatient.jsp"
+                	}
+                	else{
+                		window.alert(result.message);
+                	}
+            	},
+            error:
+            	function(result) {
+                	window.alert("Authentication failed. Admin not found.");
+            		location.href = "index.jsp";
+                }
+      });
+}
+</script>
+
 <title>Login- In Class 02</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/style.css" type="text/css">
@@ -15,15 +46,17 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
+
 <div class="jumbotron">
   <div class="centerAlign textBold">
     <h1>In Class 02</h1>      
   </div>  
 </div>
 
+
 <div class="container">
   <h2 class="margin20">Administrator Login</h2>
-  <form class="form-horizontal" action="Controller" method="post">
+  <form class="form-horizontal" method="post">
     <div class="form-group">
       	<label class="control-label col-sm-2" for="text">Username:</label>
       	<div class="col-sm-10 input-group">
@@ -35,12 +68,12 @@
       <label class="control-label col-sm-2" for="password">Password:</label>
       <div class="col-sm-10 input-group"> 
       	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>         
-        <input type="password" class="form-control" id="password" placeholder="Enter password" name="pwd" required>
+        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
       </div>
     </div>
     <div class="form-group">        
       <div class="col-sm-offset-2">
-        <button type="submit" class="btn btn-default btn-success">Submit</button>
+        <button type="button" class="btn btn-default btn-success" onclick="myFunction()">Submit</button>
       </div>
     </div>
   </form>

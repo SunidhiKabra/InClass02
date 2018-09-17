@@ -24,44 +24,47 @@ public class Controller extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws MalformedURLException,
     ProtocolException, ServletException, IOException {
-
-		String url = "ec2-18-216-97-75.us-east-2.compute.amazonaws.com:3000/admin_login";
-        String urlParameters = "username=admin1&password=password1";
-        byte[] postData = urlParameters.getBytes(StandardCharsets.UTF_8);
 		
-        try {
+		
+		
 
-            URL myurl = new URL(url);
-            con = (HttpURLConnection) myurl.openConnection();
-
-            con.setDoOutput(true);
-            con.setRequestMethod("POST");
-            con.setRequestProperty("User-Agent", "Java client");
-            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-
-            try (DataOutputStream wr = new DataOutputStream(con.getOutputStream())) {
-                wr.write(postData);
-            }
-
-            StringBuilder content;
-
-            try (BufferedReader in = new BufferedReader(
-                    new InputStreamReader(con.getInputStream()))) {
-
-                String line;
-                content = new StringBuilder();
-
-                while ((line = in.readLine()) != null) {
-                    content.append(line);
-                    content.append(System.lineSeparator());
-                }
-            }
-
-            System.out.println(content.toString());
-
-        } 
-        catch(Exception e) {
-        	e.printStackTrace();
-        }
+//		String url = "ec2-18-216-97-75.us-east-2.compute.amazonaws.com:3000/admin_login";
+//        String urlParameters = "username=admin1&password=password1";
+//        byte[] postData = urlParameters.getBytes(StandardCharsets.UTF_8);
+//		
+//        try {
+//
+//            URL myurl = new URL(url);
+//            con = (HttpURLConnection) myurl.openConnection();
+//
+//            con.setDoOutput(true);
+//            con.setRequestMethod("POST");
+//            con.setRequestProperty("User-Agent", "Java client");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+//
+//            try (DataOutputStream wr = new DataOutputStream(con.getOutputStream())) {
+//                wr.write(postData);
+//            }
+//
+//            StringBuilder content;
+//
+//            try (BufferedReader in = new BufferedReader(
+//                    new InputStreamReader(con.getInputStream()))) {
+//
+//                String line;
+//                content = new StringBuilder();
+//
+//                while ((line = in.readLine()) != null) {
+//                    content.append(line);
+//                    content.append(System.lineSeparator());
+//                }
+//            }
+//
+//            System.out.println(content.toString());
+//
+//        } 
+//        catch(Exception e) {
+//        	e.printStackTrace();
+//        }
 	}
 }
