@@ -10,9 +10,7 @@
 <script src="www.domain2.com/script.js"></script>
 <script src="crossdomain.js" ></script>
 <script>
-function patientSignUp() {
-	window.alert("Inside function patientSignUp");
-	
+function patientSignUp() {	
 	$.ajax({
         method: "POST",
         data: {
@@ -23,13 +21,13 @@ function patientSignUp() {
             username:$('#patientUsername').val(),
             password:$('#patientPassword').val(),
             phone:$('#patientContact').val()},
-            url: "http://ec2-18-216-97-75.us-east-2.compute.amazonaws.com:3000/admin_login",
+            url: "http://ec2-18-216-97-75.us-east-2.compute.amazonaws.com:3000/register_patient",
            
             success: 
             	function(result) {
                 	if(result.status==200){
                			window.alert(result.message);
-//                			location.href = "newPatient.jsp"
+               			location.href = "getData.jsp"
                 	}
                 	else{
                 		window.alert(result.message);
@@ -37,8 +35,8 @@ function patientSignUp() {
             	},
             error:
             	function(result) {
-//                 	window.alert("Authentication failed. Admin not found.");
-//             		location.href = "index.jsp";
+                	window.alert("Sign Up failed. Please try again");
+            		location.href = "newPatient.jsp";
                 }
       });
 }
@@ -58,8 +56,19 @@ function patientSignUp() {
   </div>  
 </div>
 
+<div class= container>
+	<a href="newPatient.jsp">
+		<button type="button" class="btn btn-primary btn-lg col-sm-5" style="padding:10px">Create New Patient</button>
+	</a>
+	<div class="col-sm-2"></div>
+	<a href="getData.jsp">
+		<button type="button" class="btn btn-primary btn-lg col-sm-5" style="padding:10px">Get All Data</button>
+	</a>
+</div>
+<br>
 <div class="container">
-  <h2 class="margin20 centerAlign col-sm-10">New Patient Sign Up Form</h2>  
+  <h2 class="margin20 centerAlign">New Patient Sign Up Form</h2>  
+  <br>
   <form class="form-horizontal" action="controller" method="get" >
     <div class="form-group">
       <label class="control-label col-sm-2" for="patientName">Name:</label>
@@ -110,15 +119,8 @@ function patientSignUp() {
       	<input type="tel" pattern="^\d{3}-\d{3}-\d{4}$" class="form-control" id="patientContact" placeholder="Format(xxx-xxx-xxxx)" required>
       </div>
     </div>
-<!--     <div class="form-group"> -->
-<!--       <label class="control-label col-sm-2" for="patientEmail">Email:</label> -->
-<!--       <div class="col-sm-10 input-group"> -->
-<!-- 			<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span> -->
-<!--         	<input type="email" class="form-control" id="patientEmail" placeholder="Patient's email" required> -->
-<!--       	</div> -->
-<!--     </div> -->
     <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="col-sm-offset-6 col-sm-10">
         <button type="button" class="btn btn-default btn-success" onCLick="patientSignUp()">Submit</button>
       </div>
     </div>

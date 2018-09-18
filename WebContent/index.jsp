@@ -37,14 +37,6 @@ function myFunction() {
  } 
 </script> 
 
-
-<!-- <script> 
-// $("#contactForm").submit(function(event){
-//     // cancels the form submission
-// 	window.alert("asdfghjk");
-// });
-</script> -->
-
 <title>Login- In Class 02</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/style.css" type="text/css">
