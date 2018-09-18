@@ -10,8 +10,15 @@
 <script src="www.domain2.com/script.js"></script>
 <script src="crossdomain.js" ></script>
 <script>
+	var token = sessionStorage.getItem("token");
+	if (typeof token === 'undefined' || token === null) {
+    window.alert("token not found");
+    location.href="index.jsp";
+}
+</script>
+<script>
 function patientSignUp() {	
-	$.ajax({
+$.ajax({
         method: "POST",
         data: {
             patient_name: $('#patientName').val(),

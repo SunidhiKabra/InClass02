@@ -22,6 +22,7 @@ function myFunction() {
              	function(result) { 
                  	if(result.status==200){ 
                 			window.alert(result.message); 
+                			sessionStorage.setItem("token", result.token);
                 			location.href = "newPatient.jsp" 
                  	} 
                  	else{ 
