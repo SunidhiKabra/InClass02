@@ -17,3 +17,9 @@
 .solidBorder{
 	border-style: solid;
 }
+
+.logoutButton{
+	position:fixed;
+	right:10px;
+    top:5px;
+}

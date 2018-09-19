@@ -1,22 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-<!-- ADMIN LOGIN PAGE -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="www.domain2.com/script.js"></script>
-<script src="crossdomain.js" ></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="www.domain2.com/script.js"></script>
+	<script src="crossdomain.js" ></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script>
 	var token = sessionStorage.getItem("token");
 	if (typeof token === 'undefined' || token === null) {
-    window.alert("token not found");
     location.href="index.jsp";
-}
-</script>
-<script>
+	}
+
 function patientSignUp() {	
 $.ajax({
         method: "POST",
@@ -33,7 +35,6 @@ $.ajax({
             success: 
             	function(result) {
                 	if(result.status==200){
-               			window.alert(result.message);
                			location.href = "getData.jsp"
                 	}
                 	else{
@@ -47,17 +48,19 @@ $.ajax({
                 }
       });
 }
+
+function removeToken(){
+	sessionStorage.removeItem('token');
+}
 </script>
 <title>New Patient- In Class 02</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/style.css" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 <div class="jumbotron">
+	<a href="index.jsp" class="btn btn-default" style="float:right" onClick="removeToken()">
+  		<span class="glyphicon glyphicon-off"></span>
+  		Logout
+  	</a>
   <div class="centerAlign textBold">
     <h1>In Class 02</h1>      
   </div>  
