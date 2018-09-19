@@ -32,6 +32,60 @@
 <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+<script>
+$.ajax({
+    method: "POST",
+    dataType: "json",
+    headers: {
+        "Authorization": token},
+        url: "http://ec2-18-216-97-75.us-east-2.compute.amazonaws.com:3000/all_survey_data",
+        success: 
+        	function(data) {
+           			window.alert(data);            	
+        	},
+        error:
+        	function(data) {
+            	window.alert("Getting all data failed. Please try again");
+        		location.href = "newPatient.jsp";
+            }
+  });
+  
+  
+// 'columns': [
+//     {"data" : "_id"},
+//     {"data" : "q1"},
+//     {"data" : "q2"},
+//     {"data" : "q3"},
+//     {"data" : "q4"},
+//     {"data" : "q5"},
+//     {"data" : "q6"},
+//     {"data" : "q7"},
+//     {"data" : "q8"},
+//     {"data" : "q9"},
+//     {"data" : "q10"},
+//     {"data" : "survey_id"},
+//     {"data" : "PatientID"},
+//     {"data" : "created_at"},
+//     {"date" : "v"}
+
+
+$.ajax({
+    method: "POST",
+    dataType: "json",
+    headers: {
+        "Authorization": token},
+        url: "http://ec2-18-216-97-75.us-east-2.compute.amazonaws.com:3000/all_patient_data",
+        success: 
+        	function(data) {
+           			window.alert(data);            	
+        	},
+        error:
+        	function(data) {
+            	window.alert("Getting all data failed. Please try again");
+        		location.href = "newPatient.jsp";
+            }
+  });
+</script>
     <script>
         $(document).ready(function() {
         $('#surveyDataTable').DataTable({
@@ -53,30 +107,6 @@
             );
         
     </script>
-<script>
-$.ajax({
-    method: "POST",
-    headers: {
-        "Authorization": token},
-        url: "http://ec2-18-216-97-75.us-east-2.compute.amazonaws.com:3000/all_survey_data",
-       
-        success: 
-        	function(result) {
-            	if(result.status==200){
-           			window.alert(result.message);
-//            			location.href = "getData.jsp"
-            	}
-            	else{
-            		window.alert(result.message);
-            	}
-        	},
-        error:
-        	function(result) {
-            	window.alert("Getting all data failed. Please try again");
-//         		location.href = "newPatient.jsp";
-            }
-  });
-</script>
 </head>
 <body>
 
