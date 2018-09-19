@@ -22,6 +22,8 @@
 function patientSignUp() {	
 $.ajax({
         method: "POST",
+        headers: {
+            "Authorization": token},
         data: {
             patient_name: $('#patientName').val(),
             age:$('#patientAge').val(),
@@ -35,7 +37,8 @@ $.ajax({
             success: 
             	function(result) {
                 	if(result.status==200){
-               			location.href = "getData.jsp"
+                		window.alert(result.message);
+               			location.href = "newPatient.jsp"
                 	}
                 	else{
                 		window.alert(result.message);
